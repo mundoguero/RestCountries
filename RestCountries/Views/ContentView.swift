@@ -10,10 +10,16 @@ import SwiftUI
 struct ContentView: View {
     
     @State var countries = [Country]()
+    @State private var searchTerm = ""
+    
+    var filteredCountries: [Country] {
+        guard !searchTerm.isEmpty else { return countries }
+        return countries.filter { $0.name.common.localizedCaseInsensitiveContains(searchTerm) }
+    }
     
     var body: some View {
-        NavigationView {
-            List (countries, id: \.self) { country in
+        NavigationStack {
+            List (filteredCountries, id: \.self) { country in
                 HStack(spacing: 10) {
                     Text (country.name.common)
                         .bold()
@@ -30,7 +36,8 @@ struct ContentView: View {
             .onAppear(){
                 getCountriesData()
             }
-            .navigationTitle(Text("Countries"))
+            .navigationTitle("Countries")
+            .searchable(text: $searchTerm, prompt: "Search Country")
         }
     }
 }
