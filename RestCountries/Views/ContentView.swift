@@ -8,48 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var countries = [Country]()
-    
+    @StateObject private var viewModel = CountryListViewModel()
+
     var body: some View {
-        NavigationView {
-            List (countries, id: \.self) { country in
+        NavigationStack {
+            List(viewModel.filteredCountries, id: \.self) { country in
                 HStack(spacing: 10) {
-                    Text (country.name.common)
+                    Text(country.name.common)
                         .bold()
-                        .minimumScaleFactor (0.5)
-                    
+                        .minimumScaleFactor(0.5)
+
                     Spacer()
-                    
+
                     Text("\(country.population)")
                         .bold()
                         .foregroundColor(.gray)
                 }
             }
-            
-            .onAppear(){
-                getCountriesData()
+            .onAppear {
+                viewModel.getCountriesData()
             }
-            .navigationTitle(Text("Countries"))
+            .navigationTitle("Countries")
+            .searchable(text: $viewModel.searchTerm, prompt: "Search Country")
         }
     }
 }
 
-extension ContentView {
-    func getCountriesData() {
-        Network().getCountries { (result) in
-            switch result {
-            case.success(let countries):
-                DispatchQueue.main.async {
-                    self.countries = countries
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-}
 
 #Preview {
     ContentView()
