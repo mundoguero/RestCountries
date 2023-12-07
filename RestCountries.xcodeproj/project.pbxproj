@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		499902052B22355A00BAB266 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499902042B22355A00BAB266 /* CountryListViewModel.swift */; };
 		49A46E242B1F3290002CBAB6 /* RestCountriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A46E232B1F3290002CBAB6 /* RestCountriesApp.swift */; };
 		49A46E262B1F3290002CBAB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A46E252B1F3290002CBAB6 /* ContentView.swift */; };
 		49A46E282B1F3291002CBAB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A46E272B1F3291002CBAB6 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		499902042B22355A00BAB266 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
 		49A46E202B1F3290002CBAB6 /* RestCountries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestCountries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A46E232B1F3290002CBAB6 /* RestCountriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestCountriesApp.swift; sourceTree = "<group>"; };
 		49A46E252B1F3290002CBAB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				49A46E352B1F342A002CBAB6 /* Network.swift */,
+				499902042B22355A00BAB266 /* CountryListViewModel.swift */,
 			);
 			path = Acessories;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				49A46E262B1F3290002CBAB6 /* ContentView.swift in Sources */,
 				49A46E342B1F3314002CBAB6 /* Countries.swift in Sources */,
 				49A46E362B1F342A002CBAB6 /* Network.swift in Sources */,
+				499902052B22355A00BAB266 /* CountryListViewModel.swift in Sources */,
 				49A46E242B1F3290002CBAB6 /* RestCountriesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
