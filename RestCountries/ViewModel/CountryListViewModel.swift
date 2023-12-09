@@ -11,12 +11,19 @@ class CountryListViewModel: ObservableObject {
     @Published var countries = [Country]()
     @Published var searchTerm = ""
 
-    func getCountriesData() {
-        Network().getCountries { result in
+    private let cacheManager = CacheManager()
+
+    init() {
+        loadCachedData()
+    }
+
+    func fetchCountriesData() {
+        Network().getCountries { [weak self] result in
             switch result {
             case .success(let countries):
                 DispatchQueue.main.async {
-                    self.countries = countries
+                    self?.countries = countries
+                    self?.cacheManager.saveCountries(countries)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -24,9 +31,21 @@ class CountryListViewModel: ObservableObject {
         }
     }
 
+    func loadCachedData() {
+        if let cachedCountries = cacheManager.getCachedCountries() {
+            self.countries = cachedCountries
+        }
+        
+         if countries.isEmpty {
+             fetchCountriesData()
+         }
+    }
+
     var filteredCountries: [Country] {
         guard !searchTerm.isEmpty else { return countries }
         return countries.filter { $0.name.common.localizedCaseInsensitiveContains(searchTerm) }
     }
 }
+
+
 
