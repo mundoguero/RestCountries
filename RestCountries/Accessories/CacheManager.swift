@@ -35,5 +35,20 @@ class CacheManager {
             return nil
         }
     }
-}
+    
+    func loadInitialJSON() -> [Country]? {
+            if let path = Bundle.main.path(forResource: "initialData", ofType: "json"),
+               let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
+                do {
+                    let countries = try JSONDecoder().decode([Country].self, from: data)
+                    return countries
+                } catch {
+                    print("Error decoding initial JSON: \(error.localizedDescription)")
+                    return nil
+                }
+            }
+            return nil
+        }
+    }
+
 

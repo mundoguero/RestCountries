@@ -16,6 +16,7 @@
 		49A46E362B1F342A002CBAB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A46E352B1F342A002CBAB6 /* NetworkManager.swift */; };
 		49C055772B231F4C006AADEC /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C055762B231F4C006AADEC /* CountryDetailsView.swift */; };
 		49C0557C2B248D65006AADEC /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0557B2B248D65006AADEC /* CacheManager.swift */; };
+		49C0557E2B24CC09006AADEC /* initialData.json in Resources */ = {isa = PBXBuildFile; fileRef = 49C0557D2B24CC09006AADEC /* initialData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		49A46E352B1F342A002CBAB6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		49C055762B231F4C006AADEC /* CountryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsView.swift; sourceTree = "<group>"; };
 		49C0557B2B248D65006AADEC /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		49C0557D2B24CC09006AADEC /* initialData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = initialData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,8 @@
 		49A46E222B1F3290002CBAB6 /* RestCountries */ = {
 			isa = PBXGroup;
 			children = (
-				49C0557A2B248D18006AADEC /* Acessories */,
+				49C0557D2B24CC09006AADEC /* initialData.json */,
+				49C0557A2B248D18006AADEC /* Accessories */,
 				49A46E372B1F529E002CBAB6 /* ViewModel */,
 				49A46E322B1F32C5002CBAB6 /* View */,
 				49A46E312B1F32AB002CBAB6 /* Model */,
@@ -105,13 +108,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		49C0557A2B248D18006AADEC /* Acessories */ = {
+		49C0557A2B248D18006AADEC /* Accessories */ = {
 			isa = PBXGroup;
 			children = (
 				49A46E352B1F342A002CBAB6 /* NetworkManager.swift */,
 				49C0557B2B248D65006AADEC /* CacheManager.swift */,
 			);
-			path = Acessories;
+			path = Accessories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C0557E2B24CC09006AADEC /* initialData.json in Resources */,
 				49A46E2B2B1F3291002CBAB6 /* Preview Assets.xcassets in Resources */,
 				49A46E282B1F3291002CBAB6 /* Assets.xcassets in Resources */,
 			);

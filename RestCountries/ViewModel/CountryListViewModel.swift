@@ -18,18 +18,24 @@ class CountryListViewModel: ObservableObject {
     }
 
     func fetchCountriesData() {
-        Network().getCountries { [weak self] result in
-            switch result {
-            case .success(let countries):
-                DispatchQueue.main.async {
-                    self?.countries = countries
-                    self?.cacheManager.saveCountries(countries)
+            Network().getCountries { [weak self] result in
+                switch result {
+                case .success(let countries):
+                    DispatchQueue.main.async {
+                        self?.countries = countries
+                        self?.cacheManager.saveCountries(countries)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+
+                    if self?.countries.isEmpty ?? true, let initialJSON = self?.cacheManager.loadInitialJSON() {
+                        DispatchQueue.main.async {
+                            self?.countries = initialJSON
+                        }
+                    }
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
             }
         }
-    }
 
     func loadCachedData() {
         if let cachedCountries = cacheManager.getCachedCountries() {
