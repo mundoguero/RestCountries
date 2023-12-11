@@ -122,6 +122,17 @@ The `Country` struct is a fundamental Swift data structure in the RestCountries 
 
 - **CodingKeys Enumeration:** Implements a custom `CodingKeys` enumeration to explicitly declare the coding keys. This is especially useful when working with APIs or external data sources that have different key names.
 
+# Unit Tests
+
+#### `testCountryProperties`
+
+This test validates that the `Country` model properties are correctly set and can be accessed using getters.
+
+- **Steps:**
+  1. Create a sample country with specific data.
+  2. Access the properties using getters.
+  3. Assert that the retrieved data matches the expected values.
+
 # Security Considerations
 
 Using a local JSON file bundled within the app can be a convenient way to provide initial data or fallback data in case of network issues. However, there are some considerations regarding security:
@@ -164,7 +175,6 @@ Using a local JSON file bundled within the app can be a convenient way to provid
 
 - Obfuscate the bundled JSON file or critical parts of it to make it more challenging for attackers to understand or manipulate the data.
 
-Remember that no solution is entirely foolproof, and security measures should be proportional to the sensitivity of the data and the potential risks associated with your app. Always stay informed about best practices in mobile app security and consider consulting with security professionals if needed.
 
 
 
