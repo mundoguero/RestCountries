@@ -40,7 +40,9 @@ The `Network` class is a Swift utility designed for handling network requests in
 
 ## CacheManager
 
-The `CacheManager` class is a Swift utility that handles caching of country data in the RestCountries app. It provides methods for saving, retrieving, and loading initial data from local storage, enhancing the app's performance and user experience. Key features and usage guidelines include:
+The `CacheManager` class is a Swift utility that handles caching of country data in the RestCountries app. It provides methods for saving, retrieving, and loading initial data from local storage, enhancing the app's performance and user experience.
+
+There is a video here (scren record) to show the cache system working using the Network Link Conditioner to simulate 100% of packets loss: https://www.icloud.com/iclouddrive/06ffCgsrqK9xg5zD1SuYEjtHw#Screen_Recording_2023-12-10_at_07.08
 
 ### Features
 
@@ -52,7 +54,7 @@ The `CacheManager` class is a Swift utility that handles caching of country data
 
 - **Initial JSON Loading:** Includes a method `loadInitialJSON` to load initial country data from a locally stored JSON file. This is useful for providing data in case of network failures during the app's initial run.
 
-- ## CountryListViewModel
+## CountryListViewModel
 
 The `CountryListViewModel` is a Swift class designed to serve as the view model for handling country-related data in the RestCountries app. Leveraging the SwiftUI framework, this class provides seamless integration with views, ensuring a dynamic and reactive user interface. Key features and usage guidelines include:
 
