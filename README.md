@@ -102,7 +102,7 @@ The `CountryDetailsView` is a SwiftUI view responsible for presenting detailed i
 
 - **Spacer for Layout:** Incorporates a spacer at the bottom to maintain proper spacing within the view.
 
-  ## Country Struct
+## Country Struct
 
 The `Country` struct is a fundamental Swift data structure in the RestCountries app, representing essential information about a country. This Codable and Hashable struct facilitates seamless encoding and decoding of country data, making it compatible with various data formats and storage mechanisms. Key features and usage guidelines include:
 
@@ -119,6 +119,51 @@ The `Country` struct is a fundamental Swift data structure in the RestCountries 
 - **Languages Dictionary:** Uses a dictionary (`[String: String]`) to capture language information. The keys represent language codes, and the values represent the corresponding language names.
 
 - **CodingKeys Enumeration:** Implements a custom `CodingKeys` enumeration to explicitly declare the coding keys. This is especially useful when working with APIs or external data sources that have different key names.
+
+# Security Considerations
+
+Using a local JSON file bundled within the app can be a convenient way to provide initial data or fallback data in case of network issues. However, there are some considerations regarding security:
+
+### 1. Data Integrity
+
+- Ensure that the bundled JSON file is accurate and hasn't been tampered with. Any manipulation of the data within the bundle could lead to displaying incorrect or misleading information.
+
+### 2. Sensitive Information
+
+- Avoid including sensitive information in the bundled JSON file, as the contents of the app bundle can be accessed by anyone who has the app.
+
+### 3. Static Data
+
+- Recognize that the bundled JSON file provides static data, and any updates or changes to the data won't reflect in the app until a new version is released. This limitation might not be suitable for dynamic content or real-time updates.
+
+### 4. App Size
+
+- Consider the impact on app size, especially if the bundled JSON file is large. Large files could increase the initial download size for users, affecting the app's performance and user experience.
+
+## Mitigation Strategies
+
+### 1. Encryption
+
+- If the data in the JSON file is sensitive, consider encrypting it. Decryption can be done programmatically within the app using secure methods.
+
+### 2. Checksums or Hashes
+
+- Implement checksums or hashes for the bundled JSON file. Verify the integrity of the file by comparing its checksum or hash with a known, secure value before using the data.
+
+### 3. Dynamic Loading
+
+- If real-time updates are crucial, consider fetching initial data from the bundled JSON file but allowing subsequent updates from a secure server. This ensures the app remains dynamic and up-to-date.
+
+### 4. Secure Connection
+
+- If the bundled JSON file is fetched from a remote server, ensure that the server connection is secure (HTTPS) to prevent man-in-the-middle attacks.
+
+### 5. Obfuscation
+
+- Obfuscate the bundled JSON file or critical parts of it to make it more challenging for attackers to understand or manipulate the data.
+
+Remember that no solution is entirely foolproof, and security measures should be proportional to the sensitivity of the data and the potential risks associated with your app. Always stay informed about best practices in mobile app security and consider consulting with security professionals if needed.
+
 
 
 
