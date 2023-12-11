@@ -9,11 +9,11 @@ import Foundation
 
 class Network {
 
-    private let baseURL = "https://restcountries.com/v3.1"
+    private let baseURL = "https://restcountries.com"
 
     func getCountries(completion: @escaping (Result<[Country], Error>) -> Void) {
 
-        guard let url = URL(string: "\(baseURL)/all?fields=name,population,capital,languages") else {
+        guard let url = URL(string: "\(baseURL)/v3.1/all?fields=name,population,capital,languages") else {
             print("Invalid URL!")
             completion(.failure(NSError(domain: "Invalid URL", code: 400, userInfo: nil)))
             return
