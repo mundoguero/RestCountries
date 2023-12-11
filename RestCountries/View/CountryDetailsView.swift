@@ -21,10 +21,10 @@ struct CountryDetailsView: View {
                 InformationRow(title: "Capital:", value: country.capital.joined(separator: ", "))
                 InformationRow(title: "Languages:", value: nil)
                 ForEach(country.languages.sorted(by: <), id: \.key) { code, name in
-                    InformationRow(title: nil, value: "\(code): \(name)")
-                        .padding(.leading, 20)
+                    InformationRow(title: name, value: "\(code)")
                 }
             }
+
             .foregroundColor(.gray)
 
             Spacer()
