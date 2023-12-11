@@ -43,9 +43,10 @@ struct CountryListView: View {
                     viewModel.fetchCountriesData()
                 }
             }
-
+            .listStyle(.plain)
             .navigationTitle("Countries")
             .searchable(text: $viewModel.searchTerm, prompt: "Search Country")
+            
         }
     }
 }
