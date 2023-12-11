@@ -13,7 +13,7 @@ struct CountryListView: View {
 
     var body: some View {
         NavigationStack {
-            List(viewModel.filteredCountries, id: \.self) { country in
+            List(viewModel.filteredAndSortedCountries, id: \.self) { country in
                 
                 NavigationLink(
                     destination: CountryDetailsView(country: country),
@@ -38,10 +38,7 @@ struct CountryListView: View {
                 }
             }
             .onAppear {
-                // Load cached data
                 viewModel.loadCachedData()
-
-                // Fetch the latest data from the network in the background
                 DispatchQueue.global().async {
                     viewModel.fetchCountriesData()
                 }
