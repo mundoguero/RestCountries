@@ -14,6 +14,8 @@ The RestCountries app is a modern iOS application built using SwiftUI, targeting
 
 - **Dynamic UI:** The app leverages SwiftUI's declarative syntax for building dynamic and reactive user interfaces. The use of SwiftUI's components like `List`, `NavigationLink`, and `VStack` contributes to a clean and intuitive UI design.
 
+- **Code Quality and Best Practices:** This project contains is designed for educational pourposes, a production version can use a static code tool like [Sonar] and/or [SwiftLint], this use can ensure adherence to coding standards and best practices. These tools help maintain code quality by identifying and blocking the inclusion of comments, debugging statements (e.g., `print` statements), and other practices that are not suitable for the production version.
+
 ## MVVM Architecture
 
 MVVM (Model-View-ViewModel) is a design pattern employed in the project to ensure separation of concerns and enhance maintainability. Key aspects include:
@@ -37,6 +39,7 @@ The `Network` class is a Swift utility designed for handling network requests in
 - **Timeout Handling:** Implements a timeout mechanism to prevent indefinite waiting for network responses. If the request times out, the completion handler returns a failure result with a corresponding error.
 
 - **Error Handling:** The class employs comprehensive error handling, including validation of the URL, handling network errors, decoding JSON data, and managing timeouts.
+
 
 ## CacheManager
 
