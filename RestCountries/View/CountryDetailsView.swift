@@ -11,7 +11,7 @@ struct CountryDetailsView: View {
     var country: Country
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 15) {
             Text(country.name.common)
                 .font(.title)
                 .bold()
@@ -19,16 +19,16 @@ struct CountryDetailsView: View {
             Group {
                 InformationRow(title: "Population:", value: "\(country.population)")
                 InformationRow(title: "Capital:", value: country.capital.joined(separator: ", "))
-                InformationRow(title: "Languages:", value: nil)
-                ForEach(country.languages.sorted(by: <), id: \.key) { code, name in
-                    InformationRow(title: name, value: "\(code)")
-                }
+                InformationRow(title: "Languages:", value: "\(country.languages.values.joined(separator: ", "))")
             }
-
             .foregroundColor(.gray)
-
-            Spacer()
         }
+        .padding(35)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.white)
+                .shadow(radius: 5)
+        )
         .padding()
         .navigationTitle("Country Details")
     }
@@ -40,19 +40,22 @@ struct InformationRow: View {
     
     var body: some View {
         HStack {
+            Spacer()
+
             if let title = title {
                 Text(title)
                     .font(.body)
                     .foregroundColor(.primary)
-                    .frame(width: 120, alignment: .leading)
+                    .frame(alignment: .trailing)
             }
             
             if let value = value {
                 Text(value)
                     .font(.body)
                     .foregroundColor(.secondary)
+                    .frame(alignment: .leading)
             }
-            
+           
             Spacer()
         }
     }
